@@ -1,0 +1,13 @@
+<GridLayout rows="auto, *">
+    <GridLayout row="0" columns="*, auto" class="add-bar">
+        <TextField col="0" [(ngModel)]="todoTask"></TextField>
+        <Button col="1" text="Add" (tap)="addTodo()"></Button>
+    </GridLayout>
+    <ListView row="1" [items]="todoList" (itemTap)="onItemTap($event)">
+        <template let-item="item">
+            <StackLayout>
+                <Label [text]="item.task" class="{{ item.done ? 'done' : '' }}"></Label>
+            </StackLayout>
+        </template>
+    </ListView>
+</GridLayout>
